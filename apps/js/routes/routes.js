@@ -4,6 +4,7 @@ define([
     ,'controllers/common/c_common'
     //,'controllers/dashboard/c_dashboard'
 ], function(mod, angular){
+    var ver = Math.random()*100;
     /**
      *  Setup Rounting For All Pages
      **/
@@ -53,7 +54,7 @@ define([
             //首页
             .state('dashboard', {
                 url: "/dashboard.html",
-                templateUrl: "views/dashboard/dashboard.html?v=123",
+                templateUrl: "views/dashboard/dashboard.html?ver="+ver,
                 data: {
                     pageTitle: '首页'
                 },
@@ -77,7 +78,7 @@ define([
             //漏洞订阅
             .state('vul ',{
                 url: '/vul.html',
-                templateUrl: 'views/vul/vul.html',
+                templateUrl: 'views/vul/vul.html?ver='+ver,
                 data: {
                     pageTitle: '漏洞订阅'
                 },
@@ -96,10 +97,11 @@ define([
             //网站监测
             .state('site',{
                 url: '/site.html',
-                templateUrl: 'views/site/site.html',
+                templateUrl: 'views/site/site.html?ver='+ver,
                 data: {
                     pageTitle: '网站监测'
                 },
+                controller: "siteCtrl",
                 resolve: {
                     deps: ['$ocLazyLoad', function($ocLazyLoad) {
                         return $ocLazyLoad.load({
@@ -114,10 +116,11 @@ define([
             //网站检测
             .state('sitescan',{
                 url: '/sitescan.html',
-                templateUrl: 'views/sitescan/sitescan.html',
+                templateUrl: 'views/sitescan/sitescan.html?ver='+ver,
                 data: {
                     pageTitle: '网站检测'
                 },
+                controller: "sitescanCtrl",
                 resolve: {
                     deps: ['$ocLazyLoad', function($ocLazyLoad) {
                         return $ocLazyLoad.load({
@@ -132,10 +135,11 @@ define([
             //APP检测
             .state('appscan',{
                 url: '/appscan.html',
-                templateUrl: 'views/appscan/appscan.html',
+                templateUrl: 'views/appscan/appscan.html?ver='+ver,
                 data: {
                     pageTitle: 'APP检测'
                 },
+                controller: "appscanCtrl",
                 resolve: {
                     deps: ['$ocLazyLoad', function($ocLazyLoad) {
                         return $ocLazyLoad.load({
@@ -150,10 +154,11 @@ define([
             //安服商品
             .state('anfu',{
                 url: '/anfu.html',
-                templateUrl: 'views/anfu/anfu.html',
+                templateUrl: 'views/anfu/anfu.html?ver='+ver,
                 data: {
                     pageTitle: '安服商品'
                 },
+                controller: "anfuCtrl",
                 resolve: {
                     deps: ['$ocLazyLoad', function($ocLazyLoad) {
                         return $ocLazyLoad.load({
@@ -168,10 +173,11 @@ define([
             //账户信息
             .state('useraccount',{
                 url: '/useraccount.html',
-                templateUrl: 'views/useraccount/useraccount.html',
+                templateUrl: 'views/useraccount/useraccount.html?ver='+ver,
                 data: {
                     pageTitle: '账户信息'
                 },
+                controller: "useraccountCtrl",
                 resolve: {
                     deps: ['$ocLazyLoad', function($ocLazyLoad) {
                         return $ocLazyLoad.load({
@@ -186,10 +192,11 @@ define([
             //企业资料
             .state('usercompany',{
                 url: '/usercompany.html',
-                templateUrl: 'views/usercompany/usercompany.html',
+                templateUrl: 'views/usercompany/usercompany.html?ver='+ver,
                 data: {
                     pageTitle: '企业资料'
                 },
+                controller: "usercompanyCtrl",
                 resolve: {
                     deps: ['$ocLazyLoad', function($ocLazyLoad) {
                         return $ocLazyLoad.load({
@@ -204,10 +211,11 @@ define([
             //网站管理
             .state('userwebsite',{
                 url: '/userwebsite.html',
-                templateUrl: 'views/userwebsite/userwebsite.html',
+                templateUrl: 'views/userwebsite/userwebsite.html?ver='+ver,
                 data: {
                     pageTitle: '网站管理'
                 },
+                controller: "userwebsiteCtrl",
                 resolve: {
                     deps: ['$ocLazyLoad', function($ocLazyLoad) {
                         return $ocLazyLoad.load({
@@ -222,21 +230,69 @@ define([
             //密码修改
             .state('security',{
                 url: '/security.html',
-                templateUrl: 'views/security/security.html',
+                templateUrl: 'views/security/security.html?ver='+ver,
                 data: {
                     pageTitle: '密码修改'
                 },
+                controller: "securityCtrl",
                 resolve: {
                     deps: ['$ocLazyLoad', function($ocLazyLoad) {
                         return $ocLazyLoad.load({
                             //name: 'apps',
+                            debug: true,
+                            cache: false,
+                            insertBefore: '#ng_load_plugins_before',
                             files: [
                                 'js/controllers/security/c_security.js'
                             ]
                         });
                     }]
                 }
-            });
+            })
+
+            //登录
+            .state('signin',{
+                url: '/signin.html',
+                templateUrl: 'views/login/signin.html?ver='+ver,
+                data: {
+                    pageTitle: '登录'
+                },
+                controller: "signinCtrl",
+                resolve: {
+                    deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            //name: 'apps',
+                            debug: true,
+                            cache: false,
+                            insertBefore: '#ng_load_plugins_before',
+                            files: [
+                                'js/controllers/login/c_login.js'
+                            ]
+                        });
+                    }]
+                }
+            })
+            //注册
+            .state('signup',{
+                url: '/signup.html',
+                templateUrl: 'views/login/signup.html?ver='+ver,
+                data: {
+                    pageTitle: '注册'
+                },
+                controller: "signupCtrl",
+                resolve: {
+                    deps: ['$ocLazyLoad', function($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            //name: 'apps',
+                            debug: true,
+                            cache: false,
+                            files: [
+                                'js/controllers/login/c_login.js'
+                            ]
+                        });
+                    }]
+                }
+            })
 
     }]);
 });

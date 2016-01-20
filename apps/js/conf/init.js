@@ -2,20 +2,11 @@ define([
     'angular'
     ,'apps'
 ], function(angular, apps){
-    /**
-     * @description $httpProvider
-     */
-    apps.run(["$rootScope", "settings", "$state", function($rootScope, settings, $state) {
-        $rootScope.$state = $state; // state to be accessed from view
-        $rootScope.$settings = settings; // state to be accessed from view
-    }]);
 
     /**
      * @description $controllerProvider
      */
-    apps.config(['$controllerProvider', function($controllerProvider) {
-        // this option might be handy for migrating old apps, but please don't use it
-        // in new ones!
+    apps.config(['$controllerProvider', function($controllerProvider, $window) {
         $controllerProvider.allowGlobals();
     }]);
 
@@ -25,6 +16,17 @@ define([
     apps.config(['$httpProvider', function($httpProvider){
         //
         //console.log("$httpProvider");
+    }]);
+
+    /**
+     * @description $httpProvider
+     */
+    apps.run(["$rootScope", "settings", "$state",'$window', function($rootScope, settings, $state, $window) {
+        /*if(true){
+            $window.location.href = "signin.html";
+        }*/
+        $rootScope.$state = $state; // state to be accessed from view
+        $rootScope.$settings = settings; // state to be accessed from view
     }]);
 
 

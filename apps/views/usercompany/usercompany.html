@@ -1,1 +1,94 @@
-<div>This is vul.</div>
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#/dashboard.html">首页</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#/usercompany.html">企业资料</a>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" dropdown-menu-hover data-delay="1000" data-close-others="true"> Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> New User </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-present"></i> New Event
+                        <span class="badge badge-success">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-basket"></i> New order </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-flag"></i> Pending Orders
+                        <span class="badge badge-danger">4</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-users"></i> Pending Users
+                        <span class="badge badge-warning">12</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12" style="padding-top: 10px;">
+        <tabset>
+            <tab heading="账户信息">
+                <!-- BEGIN FORM-->
+                <form action="#" id="form-username" class="form-horizontal form-bordered">
+                    <div class="form-body" style="padding-top: 10px;">
+                        <div class="form-group">
+                            <label class="control-label col-md-3">登录名</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="username">
+                                <div class="help-block">提示</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">电子邮箱</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="email">
+                                <div class="help-block">提示</div>
+                            </div>
+                        </div>
+                        <div class="form-group last password-strength">
+                            <label class="control-label col-md-3">手机号码</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="telephtone">
+                                <span class="help-block"> Type a password to check its strength </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button type="submit" class="btn purple"><i class="fa fa-check"></i> 确定</button>
+                                <!--<button type="button" class="btn default">Cancel</button>-->
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </tab>
+            <tab heading="站内信">
+                <div ui-grid="gridOptions" class="grid" ui-grid-auto-resize></div>
+            </tab>
+        </tabset>
+    </div>
+</div>

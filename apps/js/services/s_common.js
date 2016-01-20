@@ -23,4 +23,16 @@ define([
         $rootScope.settings = settings;
         return settings;
     }]);
+    /**
+     * @class actinService
+     * @description 请求入口
+     */
+    apps.factory('actinService', ['$rootScope', '$scope', '$http', function($rootScope, $scope, $http){
+        var query = function(options){
+            return $http(options);
+        };
+        return {
+            query: query
+        }
+    }])
 })

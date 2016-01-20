@@ -21,9 +21,11 @@ requirejs.config({
         ,angularSanitize: '../../bower_components/angular-sanitize/angular-sanitize'
         ,angularTouch   : '../../bower_components/angular-touch/angular-touch'
         ,angularBootstrap: '../../bower_components/angular-bootstrap/ui-bootstrap-tpls.min'
+        ,angularAnimate: '../../bower_components/angular-animate/angular-animate'
         ,ocLazyLoad: '../../bower_components/ocLazyLoad/dist/ocLazyLoad.require'
         ,angularUiRouter: '../../bower_components/angular-ui-router/release/angular-ui-router'
         ,angularRoute: '../../bower_components/angular-route/angular-route'
+        ,angularUiGrid: '../../bower_components/angular-ui-grid/ui-grid'
         ,mod: "conf/mod"
         ,app: 'scripts/app'
         ,layout: 'scripts/layout'
@@ -67,9 +69,21 @@ requirejs.config({
             deps: ['angular'],
             'exports':'ngSanitize'
         },
-        'angularTouch'  :{
+        /*'angularCookie':{
             deps: ['angular'],
-            exports : 'ngTouch'
+            'exports':'ngCookie'
+        },
+        'angularCookies':{
+            deps: ['angular'],
+            'exports':'ngCookies'
+        },*/
+        'angularAnimate':{
+            deps: ['angular'],
+            'exports' : 'ngAnimate'
+        },
+        'angularTouch'  :{
+            deps : ['angular'],
+            'exports': 'ngTouch'
         },
         'angularBootstrap': ['angular'],
         'angularRoute': ['angular'],
@@ -80,6 +94,10 @@ requirejs.config({
         'ocLazyLoad': {
             deps:['angular'],
             exports: 'ocLazyLoad'
+        },
+        'angularUiGrid':{
+            deps: ['angular'],
+            exports: 'angularUiGrid'
         },
         'app': ['jquery', 'jquerySlimscroll', 'bootstrap'],
         'layout': ['jquery', 'app'],
